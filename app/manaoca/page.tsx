@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Sparkles, BookOpen, Home, Heart, Users, Calendar, ImageIcon, CheckCircle, Star } from 'lucide-react'
 import SectionWrapper from '../components/section-wrapper'
+import ManaocaGallery from '../components/manaoca-gallery'
 
 const beneficiosREMOF = [
   'La conexión emocional que se logra entre padres e hijos.',
@@ -154,27 +155,24 @@ export default function ManaocaPage() {
         </div>
       </section>
 
-      {/* Galería Placeholder */}
-      <section className="py-16 px-4 bg-white">
+      {/* Galería */}
+      <section className="py-16 px-4 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <SectionWrapper>
-            <div className="text-center mb-8">
-              <h2 className="font-serif text-3xl text-apsid-500 mb-4">Galería</h2>
-              <div className="w-20 h-1 bg-manaoca-400 mx-auto rounded-full"></div>
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl text-apsid-500 mb-4 flex items-center justify-center gap-3">
+                <ImageIcon className="w-8 h-8 text-manaoca-400" />
+                Galería de Actividades
+              </h2>
+              <div className="w-20 h-1 bg-manaoca-400 mx-auto rounded-full mb-4"></div>
+              <p className="text-slate-600 max-w-2xl mx-auto">
+                Un vistazo a los espacios y dinámicas donde los niños aprenden jugando, exploran su creatividad y se desarrollan en un ambiente seguro.
+              </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[1, 2, 3, 4]?.map((item) => (
-                <div key={item} className="aspect-square bg-pastel-100 rounded-2xl flex items-center justify-center border border-pastel-200">
-                  <div className="text-center text-pastel-300">
-                    <ImageIcon className="w-12 h-12 mx-auto mb-2" />
-                    <p className="text-sm">Próximamente</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="text-center text-slate-500 text-sm mt-6">
-              Pronto compartiremos imágenes de nuestras actividades y espacios.
-            </p>
+            
+            {/* Carousel Component */}
+            <ManaocaGallery />
+            
           </SectionWrapper>
         </div>
       </section>
