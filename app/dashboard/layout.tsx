@@ -23,7 +23,7 @@ export default async function DashboardLayout({
   return (
     <div className="flex h-screen bg-pastel-50 overflow-hidden">
       {/* Sidebar (solo escritorio por ahora) */}
-      <DashboardSidebar userName={session.user.name || "Olga"} />
+      <DashboardSidebar userName={session.user?.name || "Olga"} />
       
       {/* Contenido principal */}
       <main className="flex-1 overflow-y-auto p-4 md:p-8">
