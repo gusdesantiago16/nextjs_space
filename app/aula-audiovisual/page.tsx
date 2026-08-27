@@ -102,31 +102,53 @@ export default function AulaAudiovisualPage() {
               <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
                 <Headphones className="w-5 h-5 text-purple-500" />
               </div>
-              <h2 className="font-serif text-2xl text-apsid-500">Audios y Podcasts</h2>
+              <h2 className="font-serif text-2xl text-apsid-500">Audios y Podcasts (iVoox)</h2>
             </div>
           </SectionWrapper>
-          <div className="space-y-4">
-            {[1, 2, 3]?.map((item) => (
-              <SectionWrapper key={item} delay={item * 0.1}>
-                <div className="bg-pastel-50 rounded-2xl p-4 shadow-md flex items-center gap-4 hover:shadow-lg transition-all border border-pastel-100">
-                  <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Headphones className="w-8 h-8 text-purple-400" />
+          <div className="space-y-8">
+            {[
+              { 
+                id: '20495114', 
+                title: 'Importancia de la Inteligencia Emocional', 
+                desc: 'Descubre por qué la inteligencia emocional es clave en el desarrollo personal, familiar y profesional.' 
+              },
+              { 
+                id: '20494404', 
+                title: 'Asertividad', 
+                desc: 'Aprende las herramientas necesarias para comunicarte de forma clara, directa y respetuosa.' 
+              },
+              { 
+                id: '20512644', 
+                title: 'Derechos Humanos', 
+                desc: 'Una reflexión profunda sobre nuestros derechos fundamentales y su importancia en la convivencia diaria.' 
+              }
+            ].map((podcast, index) => (
+              <SectionWrapper key={podcast.id} delay={index * 0.1}>
+                <div className="bg-pastel-50 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-pastel-100">
+                  <div className="flex flex-col md:flex-row gap-6 items-center">
+                    <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <Headphones className="w-8 h-8 text-purple-500" />
+                    </div>
+                    <div className="flex-1 text-center md:text-left">
+                      <h3 className="font-serif text-xl md:text-2xl text-apsid-500 mb-2">{podcast.title}</h3>
+                      <p className="text-slate-600">{podcast.desc}</p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-medium text-apsid-500 mb-1">Episodio #{item}</h3>
-                    <p className="text-sm text-slate-500">Contenido de audio próximamente disponible.</p>
+                  
+                  {/* Custom Audio Player */}
+                  <div className="mt-6 bg-white p-4 rounded-xl border border-pastel-200 shadow-sm flex items-center justify-center">
+                    <audio 
+                      controls 
+                      className="w-full h-12"
+                      src={`https://www.ivoox.com/listen_mn_${podcast.id}_1.mp3`}
+                      preload="none"
+                    >
+                      Tu navegador no soporta el elemento de audio.
+                    </audio>
                   </div>
-                  <span className="px-4 py-2 bg-white text-apsid-500 rounded-xl text-sm border border-pastel-200">
-                    Próximamente
-                  </span>
                 </div>
               </SectionWrapper>
             ))}
-          </div>
-          <div className="mt-8 p-4 bg-manaoca-50 rounded-2xl border-2 border-dashed border-manaoca-200 text-center">
-            <p className="text-manaoca-600 text-sm">
-              <strong>Nota:</strong> Esta sección está preparada para embeber contenido de iVoox y otras plataformas de audio.
-            </p>
           </div>
         </div>
       </section>
@@ -144,24 +166,36 @@ export default function AulaAudiovisualPage() {
           </SectionWrapper>
           <div className="grid md:grid-cols-2 gap-4">
             {[
-              { nombre: 'Guía de Crianza Positiva', tipo: 'PDF' },
-              { nombre: 'Ejercicios de Regulación Emocional', tipo: 'PDF' },
-              { nombre: 'Actividades para el Desarrollo', tipo: 'PDF' },
-              { nombre: 'Tips para Padres', tipo: 'PDF' },
-            ]?.map((recurso, index) => (
+              { nombre: 'Guía de Crianza Positiva', tipo: 'PDF', url: '/assets/guia-crianza-positiva.pdf', isAvailable: true },
+              { nombre: 'Ejercicios de Regulación Emocional', tipo: 'PDF', url: '/assets/regulacion-emocional.pdf', isAvailable: true },
+              { nombre: 'Actividades para el Desarrollo', tipo: 'PDF', url: '/assets/actividades-desarrollo.pdf', isAvailable: true },
+              { nombre: 'Tips para Padres', tipo: 'PDF', url: '/assets/tips-padres.pdf', isAvailable: true },
+            ].map((recurso, index) => (
               <SectionWrapper key={index} delay={index * 0.1}>
                 <div className="bg-white rounded-2xl p-4 shadow-md flex items-center gap-4 hover:shadow-lg transition-all border border-pastel-100">
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                     <FolderOpen className="w-6 h-6 text-blue-400" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-medium text-apsid-500">{recurso?.nombre ?? ''}</h3>
-                    <p className="text-xs text-slate-400">{recurso?.tipo ?? ''}</p>
+                    <h3 className="font-medium text-apsid-500">{recurso.nombre}</h3>
+                    <p className="text-xs text-slate-400">{recurso.tipo}</p>
                   </div>
-                  <span className="flex items-center gap-1 px-3 py-2 bg-pastel-100 text-apsid-500 rounded-xl text-sm">
-                    <Download className="w-4 h-4" />
-                    Próximamente
-                  </span>
+                  {recurso.isAvailable ? (
+                    <a 
+                      href={recurso.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="flex items-center gap-1 px-4 py-2 bg-apsid-500 text-white hover:bg-apsid-600 rounded-xl text-sm transition-colors shadow-sm"
+                    >
+                      <Download className="w-4 h-4" />
+                      Abrir PDF
+                    </a>
+                  ) : (
+                    <span className="flex items-center gap-1 px-3 py-2 bg-pastel-100 text-apsid-500 rounded-xl text-sm">
+                      <Download className="w-4 h-4" />
+                      Próximamente
+                    </span>
+                  )}
                 </div>
               </SectionWrapper>
             ))}

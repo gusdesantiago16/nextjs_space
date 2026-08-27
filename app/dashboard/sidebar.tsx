@@ -20,7 +20,7 @@ export default function DashboardSidebar({ userName }: { userName: string }) {
     <aside className="w-64 bg-white border-r border-pastel-200 flex flex-col hidden md:flex shadow-lg relative z-10">
       <div className="p-6 border-b border-pastel-200 bg-apsid-500 text-white">
         <h2 className="font-serif text-2xl font-bold">Portal APSID</h2>
-        <p className="text-sm text-apsid-100 mt-1">Lic. {userName}</p>
+        <p className="text-sm text-apsid-100 mt-1">{userName.startsWith('Lic.') ? userName : `Lic. ${userName}`}</p>
       </div>
 
       <nav className="flex-1 p-4 space-y-2 overflow-y-auto">

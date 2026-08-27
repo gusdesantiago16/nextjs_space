@@ -22,6 +22,7 @@ model User {
   patientResources PatientResource[]
   payments        Payment[]
   progressReports ProgressReport[]
+  clinicalNotes   ClinicalNote[]
 }
 
 model Package {
@@ -68,7 +69,8 @@ model Payment {
 model ClinicalNote {
   id        String   @id @default(cuid())
   patientId String   // ID of the user (patient)
-  content   String
+  patient   User     @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  content   String   @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -104,4 +106,17 @@ model Contact {
   subject   String
   message   String
   createdAt DateTime @default(now())
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  price       Float?
+  imageUrl    String?
+  purchaseUrl String?  // Link de Hotmart u otro checkout
+  type        String   @default("HOTMART") // "HOTMART", "PDF", "PHYSICAL"
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
