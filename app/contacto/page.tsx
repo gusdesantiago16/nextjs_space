@@ -74,17 +74,17 @@ export default function ContactoPage() {
                       <span className="font-medium text-apsid-500">Horarios</span>
                     </div>
                     <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-slate-500">Lunes - Viernes</span>
-                        <span className="text-apsid-500 font-medium">9:00 - 19:00</span>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-slate-500">Lunes, Miércoles, Jueves y Viernes</span>
+                        <span className="text-apsid-500 font-medium text-right whitespace-nowrap">de 10:00am a 7:00pm</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-slate-500">Sábado</span>
-                        <span className="text-apsid-500 font-medium">9:00 - 14:00</span>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-slate-500">Martes y Sábado</span>
+                        <span className="text-apsid-500 font-medium text-right whitespace-nowrap">de 10:00am a 2:00pm</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-slate-500">Domingo</span>
-                        <span className="text-slate-400">Cerrado</span>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-slate-500">Domingos</span>
+                        <span className="text-slate-400 text-right whitespace-nowrap">No hay servicio</span>
                       </div>
                     </div>
                   </div>

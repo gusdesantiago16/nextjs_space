@@ -1,16 +1,21 @@
-import { PrismaClient } from "@prisma/client"
+import { prisma } from "@/lib/prisma"
 import Image from "next/image"
 import Link from "next/link"
 import { Store, ShoppingBag, ExternalLink, Download } from "lucide-react"
 import SectionWrapper from "../components/section-wrapper"
 
-const prisma = new PrismaClient()
+export const dynamic = "force-dynamic"
 
 export default async function PublicTiendaPage() {
-  const products = await prisma.product.findMany({
-    where: { isActive: true },
-    orderBy: { createdAt: 'desc' }
-  })
+  let products: Awaited<ReturnType<typeof prisma.product.findMany>> = []
+  try {
+    products = await prisma.product.findMany({
+      where: { isActive: true },
+      orderBy: { createdAt: 'desc' }
+    })
+  } catch (error) {
+    console.error("No se pudo conectar a la base de datos en /tienda:", error)
+  }
 
   return (
     <div className="min-h-screen bg-pastel-50">

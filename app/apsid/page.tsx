@@ -18,12 +18,14 @@ const servicios = [
     title: 'Terapia de Pareja',
     description: 'Fortalece tu relación y mejora la comunicación con tu pareja.',
     iconName: 'Heart',
+    price: 'Depende de las sesiones',
     features: ['Sesión de 60 minutos', 'Trabajo en comunicación efectiva', 'Estrategias de resolución']
   },
   {
     title: 'Terapia de Grupo',
     description: 'Espacios de apoyo y crecimiento compartido.',
     iconName: 'Users',
+    price: 'Depende de las sesiones',
     features: ['Grupos reducidos', 'Temáticas específicas', 'Apoyo entre pares']
   },
 ]
@@ -32,19 +34,19 @@ const paquetes = [
   {
     nombre: 'Paquete Inicial',
     sesiones: '4 sesiones',
-    precio: 'Precio por definir',
+    precio: '$ 1,800',
     beneficios: ['Evaluación psicológica', '4 sesiones terapéuticas', 'Café para Padres incluido', 'Material de apoyo']
   },
   {
     nombre: 'Paquete Crecimiento',
     sesiones: '8 sesiones',
-    precio: 'Precio por definir',
+    precio: '$ 3,400',
     beneficios: ['Todo lo del paquete inicial', '8 sesiones terapéuticas', 'Café para Padres incluido', 'Seguimiento personalizado', 'Recursos adicionales']
   },
   {
     nombre: 'Paquete Transformación',
     sesiones: '12 sesiones',
-    precio: 'Precio por definir',
+    precio: '$ 4,800',
     beneficios: ['Todo lo del paquete crecimiento', '12 sesiones terapéuticas', 'Café para Padres incluido', 'Acceso a talleres', 'Soporte prioritario']
   },
 ]

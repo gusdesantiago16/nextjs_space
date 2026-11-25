@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Video, Headphones, FileText, FolderOpen, Play, Download } from 'lucide-react'
+import { Video, Headphones, FileText, FolderOpen, Download } from 'lucide-react'
 import SectionWrapper from '../components/section-wrapper'
 
 const categorias = [
@@ -26,7 +26,7 @@ export default function AulaAudiovisualPage() {
               </div>
               <h1 className="font-serif text-4xl md:text-5xl text-apsid-500 mb-4">Aula Audiovisual</h1>
               <p className="text-slate-600 max-w-2xl mx-auto">
-                Recursos educativos en formato multimedia para aprender y crecer. Videos, podcasts y materiales descargables.
+                Recursos educativos en formato multimedia para aprender y crecer. Podcasts y materiales descargables.
               </p>
             </div>
           </SectionWrapper>
@@ -62,40 +62,8 @@ export default function AulaAudiovisualPage() {
         </div>
       </section>
 
-      {/* Videos */}
-      <section className="py-12 px-4 bg-pastel-50">
-        <div className="max-w-6xl mx-auto">
-          <SectionWrapper>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
-                <Play className="w-5 h-5 text-red-500" />
-              </div>
-              <h2 className="font-serif text-2xl text-apsid-500">Videos</h2>
-            </div>
-          </SectionWrapper>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3]?.map((item) => (
-              <SectionWrapper key={item} delay={item * 0.1}>
-                <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all border border-pastel-100">
-                  <div className="aspect-video bg-pastel-100 flex items-center justify-center">
-                    <div className="text-center text-apsid-300">
-                      <Video className="w-12 h-12 mx-auto mb-2" />
-                      <p className="text-sm font-medium">Próximamente</p>
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-medium text-apsid-500 mb-1">Video #{item}</h3>
-                    <p className="text-sm text-slate-500">Contenido educativo próximamente disponible.</p>
-                  </div>
-                </div>
-              </SectionWrapper>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Audios / Podcasts */}
-      <section className="py-12 px-4 bg-white">
+      <section className="py-12 px-4 bg-pastel-50">
         <div className="max-w-6xl mx-auto">
           <SectionWrapper>
             <div className="flex items-center gap-3 mb-8">
@@ -124,7 +92,7 @@ export default function AulaAudiovisualPage() {
               }
             ].map((podcast, index) => (
               <SectionWrapper key={podcast.id} delay={index * 0.1}>
-                <div className="bg-pastel-50 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-pastel-100">
+                <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-pastel-100">
                   <div className="flex flex-col md:flex-row gap-6 items-center">
                     <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0">
                       <Headphones className="w-8 h-8 text-purple-500" />
@@ -136,7 +104,7 @@ export default function AulaAudiovisualPage() {
                   </div>
                   
                   {/* Custom Audio Player */}
-                  <div className="mt-6 bg-white p-4 rounded-xl border border-pastel-200 shadow-sm flex items-center justify-center">
+                  <div className="mt-6 bg-pastel-50 p-4 rounded-xl border border-pastel-200 shadow-sm flex items-center justify-center">
                     <audio 
                       controls 
                       className="w-full h-12"
@@ -154,7 +122,7 @@ export default function AulaAudiovisualPage() {
       </section>
 
       {/* Recursos Descargables */}
-      <section className="py-12 px-4 bg-pastel-50">
+      <section className="py-12 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <SectionWrapper>
             <div className="flex items-center gap-3 mb-8">
@@ -172,7 +140,7 @@ export default function AulaAudiovisualPage() {
               { nombre: 'Tips para Padres', tipo: 'PDF', url: '/assets/tips-padres.pdf', isAvailable: true },
             ].map((recurso, index) => (
               <SectionWrapper key={index} delay={index * 0.1}>
-                <div className="bg-white rounded-2xl p-4 shadow-md flex items-center gap-4 hover:shadow-lg transition-all border border-pastel-100">
+                <div className="bg-pastel-50 rounded-2xl p-4 shadow-md flex items-center gap-4 hover:shadow-lg transition-all border border-pastel-100">
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                     <FolderOpen className="w-6 h-6 text-blue-400" />
                   </div>
@@ -208,7 +176,7 @@ export default function AulaAudiovisualPage() {
         <SectionWrapper>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-white">
-              Estamos preparando contenido valioso para ti. Pronto encontrarás aquí videos, podcasts y recursos descargables sobre psicología, desarrollo infantil y crianza positiva.
+              Estamos preparando contenido valioso para ti. Aquí encontrarás podcasts y recursos descargables sobre psicología, desarrollo infantil y crianza positiva.
             </p>
           </div>
         </SectionWrapper>
